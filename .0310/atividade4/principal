@@ -1,1 +1,44 @@
+//A Estrutura 'Fila' foi utilizada pois em seu método 'remover' possui a 
+//condição de que o elemento tem que ser removido em ordem de chegada, e a 
+//estrutura 'Fila' realiza essa ação.
 
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class Principal {
+
+    public static void main(String[] args) {
+
+        Scanner ler = new Scanner(System.in);
+        int escolha;
+        Queue<String> fila = new LinkedList<>();
+
+        do {
+            System.out.println("1. Cadastrar");
+            System.out.println("2. Remover");
+            System.out.println("3. Finalizar");
+            escolha = ler.nextInt();
+
+            switch (escolha) {
+                case 1:
+                    System.out.println("Digite um nome:");
+                    String nome = ler.next();
+                    fila.add(nome);
+                    break;
+                case 2:
+                    String removido = fila.remove();
+                    System.out.println("Elemento removido: " + removido);
+                    break;
+                case 3:
+                    System.out.println("Sistema finalizado!");
+                    break;
+                default:
+                    System.out.println("Opção invalida. Tente novamente.");
+                    escolha = ler.nextInt();
+                    break;
+            }
+        } while (escolha != 3);
+        System.out.println(fila);
+    }
+}
