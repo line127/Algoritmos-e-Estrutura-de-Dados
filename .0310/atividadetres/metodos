@@ -1,1 +1,61 @@
+import java.util.HashMap;
+
+public class Cadastro {
+
+    private int valor;
+    private String nome;
+    HashMap<String, Integer> listagem;
+
+    public Cadastro(String nome, int valor) {
+        setNome(nome);
+        setValor(valor);
+        listagem = new HashMap<String, Integer>();
+    }
+
+    public int getValor() {
+        return valor;
+    }
+
+    public void setValor(int valor) {
+        this.valor = valor;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void cadastro(String nome, int valor) {
+        listagem.put(nome, valor);
+    }
+
+    public void listar() {
+        for (String l : listagem.keySet()) {
+            System.out.println("Item: " + getNome() + " - Valor: " + getNome());
+        }
+    }
+
+    public void remover(String nome) {
+        listagem.remove(nome);
+        System.out.println("Item removido com sucesso!");
+    }
+
+    public void pesquisar(String nome) {
+        if (listagem.containsKey(nome)) {
+            System.out.println("Item encontrado!");
+            System.out.println("Item: " + getNome() + " - Valor: " + getValor());
+        } else {
+            System.out.println("Item nao encontrado. Tente novamente");
+        }
+
+    }
+
+    public void alterar(String nome, int novoValor) {
+        listagem.replace(nome, novoValor);
+        System.out.println("Atualizado com sucesso!");
+    }
+}
 
