@@ -8,9 +8,9 @@ A estrutura de dados pode fazer diferença na eficiência e no desemprenho de um
  
 ***3)Explique e exemplifique as estruturas: array (estático e dinâmico), lista, fila e pilha.***
 
-Array: 
+Array: 	 Um array é uma estrutura de dados fundamental em programação que permite armazenar uma coleção de elementos do mesmo tipo sob um único nome. **Estática** Ao criar um array, pré-definimos a quantidade máxima de registros. **Dinâmica:** Existe um método para aumentar a capacidade dinamicamente.
 
-Lista:
+Lista: Esta interface define um contrato para uma lista ordenada de elementos, onde cada elemento tem um índice associado. Existem várias classes que implementam a interface List, sendo as mais comuns: **ArrayList:** Implementação de lista baseada em array. **LinkedList:** Implementação de lista duplamente encadeada.
 
 Fila: Fila ou **Queue** se comporta da maneira FIFO (First-In-First-Out). Basicamente, o primeiro dado inserido na fila será o primeiro dado a ser removido. Nesse modo de estrutura não é permitido elementos duplicados e possui também métodos especificos para operações como: **add(E elemento)** para adicionar um elemento ao final da fila, **remove()** para remover o elemento da fila e **peek()** para retornar o elemente na frente sem removê-lo. É util estar usando o método fila para agendar tarefas em um sistema de computação distribuído. **Exemplos:** fila da impressão, pedidos de uma fila de atendimento.
 
