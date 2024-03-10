@@ -1,1 +1,65 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Scanner;
 
+public class Principal {
+
+    public static void main(String[] args) {
+
+        Scanner ler = new Scanner(System.in);
+        // HashMap <String, Integer> lista = new HashMap<>();
+        Cadastro lista = new Cadastro(null, 0);
+        int escolha;
+
+        do {
+            System.out.println("Selecione a ação desejada:");
+            System.out.println("1 - Cadastrar");
+            System.out.println("2- Listar todos os nomes");
+            System.out.println("3 - Pesquisa de item");
+            System.out.println("4- Alterar");
+            System.out.println("5 - Remover");
+            System.out.println("6 - Finalizar sistema");
+            escolha = ler.nextInt();
+
+            switch (escolha) {
+                case 1:
+                    System.out.println("Digite o nome do item:");
+                    String nomeItem = ler.next();
+                    System.out.println("Digite o valor do item:");
+                    int valorItem = ler.nextInt();
+                    lista.cadastro(nomeItem, valorItem);
+                    break;
+                case 2:
+                    System.out.println("Listagem de itens:");
+                    lista.listar();
+                    break;
+                case 3:
+                    System.out.println("Item que deseja procurar:");
+                    String itemProcurar = ler.next();
+                    lista.pesquisar(itemProcurar);
+                    break;
+                case 4:
+                    System.out.println("Item que gostaria de alterar:");
+                    String item = ler.next();
+                    System.out.println("Novo preço:");
+                    int novoValor = ler.nextInt();
+                    lista.alterar(item, novoValor);
+                    break;
+                case 5:
+                    System.out.println("Item que quer remover:");
+                    String itemRemovido = ler.next();
+                    lista.remover(itemRemovido);
+                    System.out.println("Removendo item...");
+                case 6:
+                    System.out.println("Sistema finalizado!");
+                    break;
+                default:
+                    System.out.println("Ação invalida. Tente novamente");
+                    escolha = ler.nextInt();
+                    break;
+            }
+
+        } while (escolha != 6);
+        lista.listar();
+    }
+}
