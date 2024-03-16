@@ -1,0 +1,58 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Metodos m = new Metodos();
+        Scanner ler = new Scanner(System.in);
+        int opcao = 0;
+
+        while (opcao != 5) {
+            System.out.println("---------");
+            System.out.println("1. Cadastro do aluno (nome e média final)");
+            System.out.println("2. Seleçao");
+            System.out.println("3. Alteraçao de nota");
+            System.out.println("4. Excluir aluno");
+            System.out.println("5. Finalizar sistema");
+            System.out.println("---------");
+
+            opcao = ler.nextInt();
+            switch (opcao) {
+                case 1:
+                    System.out.println("Nome do aluno: ");
+                    String nome = ler.next();
+                    System.out.println("Sua média final: ");
+                    int mediaFinal = ler.nextInt();
+                    m.cadastro(nome, mediaFinal);
+                    break;
+                case 2:
+                    System.out.println("Nome do aluno que deseja procurar:");
+                    String nomeProcurar = ler.next();
+                    m.selecao(nomeProcurar);
+                    break;
+                case 3:
+                    System.out.println("Nome do aluno que deseja alterar media:");
+                    String nomeAlterar = ler.next();
+                    System.out.println("Nova media: ");
+                    int mediaAlterada = ler.nextInt();
+                    m.alterar(nomeAlterar, mediaAlterada);
+                    break;
+                case 4:
+                    System.out.println("Excluir aluno: ");
+                    String nomeRemocao = ler.next();
+                    m.remover(nomeRemocao);
+                    break;
+                case 5:
+                    System.out.println("Sistema finalizado!!");
+                    m.media();
+                    break;
+                default:
+                    System.out.println("Invalido. Tente novamente");
+                    opcao = ler.nextInt();
+                    break;
+            }
+
+        }
+
+    }
+}
