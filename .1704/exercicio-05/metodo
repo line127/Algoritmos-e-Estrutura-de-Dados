@@ -1,0 +1,73 @@
+import java.util.HashMap;
+
+public class Metodos {
+
+    private String nome;
+    private int media;
+    HashMap<String, Integer> cadastro = new HashMap<>();
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getMedia() {
+        return media;
+    }
+
+    public void setMedia(int media) {
+        this.media = media;
+    }
+
+    public void cadastro(String nome, int media) {
+        cadastro.put(nome, media);
+    }
+
+    public void selecao(String nome) {
+        if (cadastro.containsKey(nome)) {
+            System.out.println("Aluno: " + nome + " - Media final: " + cadastro.get(nome));
+        } else {
+            System.out.println("Aluno não encontrado");
+        }
+    }
+
+    public void alterar(String nome, int nota) {
+        if (cadastro.containsKey(nome)) {
+            cadastro.put(nome, nota);
+            System.out.println("Nota alterada no sistema!");
+        } else {
+            System.out.println("Aluno não encontrado");
+        }
+    }
+
+    public void remover(String nome) {
+        if (cadastro.containsKey(nome)) {
+            cadastro.remove(nome);
+            System.out.println("Cadastro excluido!");
+        } else {
+            System.out.println("Aluno não encontrado");
+        }
+    }
+
+    public void media() {
+        int aprovados = 0;
+        int reprovados = 0;
+
+        for (String key : cadastro.keySet()) {
+            int score = cadastro.get(key);
+            if (score >= 6) {
+                aprovados++;
+            } else {
+                reprovados++;
+            }
+        }
+
+        System.out.println(cadastro.size() + " aluno(s) cadastrados");
+        System.out.println(aprovados + " aluno(s) aprovados");
+        System.out.println(reprovados + " aluno(s) reprovados");
+
+    }
+}
