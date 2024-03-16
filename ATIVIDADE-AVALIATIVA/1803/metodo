@@ -1,0 +1,53 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class Metodo {
+
+    Queue<String> tarefas = new LinkedList();
+    private String tarefa;
+
+    public Metodo() {
+
+    }
+
+    public Queue<String> getTarefas() {
+        return tarefas;
+    }
+
+    public void setTarefas(Queue<String> tarefas) {
+        this.tarefas = tarefas;
+    }
+
+    public String getTarefa() {
+        return tarefa;
+    }
+
+    public void setTarefa(String tarefa) {
+        this.tarefa = tarefa;
+    }
+
+    public void adicionarTarefa(String tarefa) {
+        tarefas.add(tarefa);
+        System.out.println("Tarefa adicionada!");
+    }
+
+    public void listarTarefas() {
+        int i = 0;
+        System.out.println("Tarefas para serem concluidas em ordem: ");
+        for (String n : tarefas) {
+            System.out.println((i + 1) + " - " + n);
+            i++;
+        }
+    }
+
+    public void excluirTarefa() {
+        tarefas.poll();
+        if (tarefas.isEmpty()) {
+            System.out.println("Todas tarefas concluidas!");
+        } else {
+            System.out.println("Atualizações das tarefas! Proxima tarefa a ser concluida: ");
+            System.out.println("1 - " + tarefas.peek());
+
+        }
+    }
+}
